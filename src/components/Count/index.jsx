@@ -1,9 +1,9 @@
-export const Count = () => {
+export const Count = ({ count, handleSubmit, onChangeCount }) => {
   return (
     <div>
       <div>Количество билетов</div>
-      <input />
-      <button>Посчитать</button>
+      <input value={count} onChange={onChangeCount} />
+      <button onClick={handleSubmit}>Посчитать</button>
     </div>
   )
 }
