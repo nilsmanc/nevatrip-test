@@ -62,10 +62,22 @@ export const Form = () => {
   return (
     <div>
       <Destination destination={data.destination} onChangeDestination={destinationHandler} />
-      <TimeSelect time={data.time} secondTime={secondTime} onChangeTime={timeHandler} />
+      <TimeSelect
+        data={data}
+        destination={destination}
+        time={time}
+        secondTime={secondTime}
+        onChangeTime={timeHandler}
+      />
       <Count count={count} handleSubmit={handleSubmit} onChangeCount={countHandler} />
       {!isHidden && (
-        <Message count={count} time={time} secondTime={secondTime} destination={destination} />
+        <Message
+          data={data}
+          count={count}
+          time={time}
+          secondTime={secondTime}
+          destination={destination}
+        />
       )}
     </div>
   )
