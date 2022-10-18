@@ -6,6 +6,7 @@ export const Destination = ({ destination, onChangeDestination }) => {
       </option>
     ))
   }
+
   return (
     <div>
       <select onChange={onChangeDestination}>{mapOptions()}</select>

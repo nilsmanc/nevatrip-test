@@ -8,29 +8,36 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
       timeValues.filter((value) => value > increaseTime(time, 50).format('YYYY-MM-DD HH:mm:ss')),
     [time, timeValues],
   )
-  console.log(timeValues)
 
-  const mapOptions = (filter) => {
-    const filtered = filter ? filterValues : timeValues
+  const secondTimeValues = useMemo(() => data.time[destination] || data.time['back'], [destination])
+  const secondFilterValues = useMemo(
+    () =>
+      secondTimeValues.filter(
+        (value) => value > increaseTime(time, 50).format('YYYY-MM-DD HH:mm:ss'),
+      ),
+    [time, timeValues],
+  )
+
+  const mapOptions = (valuesType, filterType, filter) => {
+    const filtered = filter ? filterType : valuesType
     return filtered.map((value) => (
       <option key={value} value={value}>
         {value}
       </option>
     ))
   }
+
   return (
     <div>
       <div>Выберите время</div>
       <select value={time} onChange={onChangeTime}>
-        {mapOptions('to')}
+        {mapOptions(timeValues, filterValues)}
       </select>
-      {
-        (destination = 'round' && (
-          <select value={time} onChange={onChangeTime}>
-            <option>back</option>
-          </select>
-        ))
-      }
+      {destination == 'round' && (
+        <select value={time} onChange={onChangeTime}>
+          {mapOptions(secondTimeValues, secondFilterValues)}
+        </select>
+      )}
     </div>
   )
 }
