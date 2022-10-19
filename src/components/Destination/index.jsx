@@ -10,7 +10,7 @@ export const Destination = ({ destination, onChangeDestination }) => {
   return (
     <div>
       <select onChange={onChangeDestination}>{mapOptions()}</select>
-      <div>Время в пути</div>
+      <div>Время в пути в одну сторону - 50 минут</div>
     </div>
   )
 }

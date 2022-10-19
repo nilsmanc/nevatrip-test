@@ -45,8 +45,12 @@ export const Form = () => {
     setDestination(e.target.value)
   }
 
-  const timeHandler = (time) => {
-    setTime(time)
+  const timeHandler = (id, time) => {
+    if (id === 'time') {
+      setTime(time)
+    } else {
+      setSecondTime(time)
+    }
     setIsHidden(true)
   }
 

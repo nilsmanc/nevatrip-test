@@ -1,15 +1,13 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { increaseTime } from '../../utils/utils'
 
 export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }) => {
-  const timeValues = useMemo(() => data.time[destination] || data.time['to'], [destination])
-  const filterValues = useMemo(
-    () =>
-      timeValues.filter((value) => value > increaseTime(time, 50).format('YYYY-MM-DD HH:mm:ss')),
-    [time, timeValues],
-  )
+  const timeValues = useMemo(() => data.time[destination] || data.time['to'], [data, destination])
 
-  const secondTimeValues = useMemo(() => data.time[destination] || data.time['back'], [destination])
+  const secondTimeValues = useMemo(
+    () => data.time[destination] || data.time['back'],
+    [data, destination],
+  )
   const secondFilterValues = useMemo(
     () =>
       secondTimeValues.filter(
@@ -18,7 +16,7 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
     [time, timeValues],
   )
 
-  const mapOptions = (valuesType, filterType, filter) => {
+  const mapOptions = (valuesType, filterType, filter = false) => {
     const filtered = filter ? filterType : valuesType
     return filtered.map((value) => (
       <option key={value} value={value}>
@@ -27,15 +25,29 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
     ))
   }
 
+  const changeTimeHandler = (e) => {
+    onChangeTime(e.target.id, e.target.value)
+  }
+
+  useEffect(() => {
+    if (!time && !secondTime) {
+      if (destination === 'round') {
+        onChangeTime('secondTime', secondFilterValues[0])
+      }
+
+      onChangeTime('time', timeValues[0])
+    }
+  }, [time, secondTime, destination, timeValues, secondTimeValues, secondFilterValues])
+
   return (
     <div>
       <div>Выберите время</div>
-      <select value={time} onChange={onChangeTime}>
-        {mapOptions(timeValues, filterValues)}
+      <select id='time' value={time} onChange={changeTimeHandler}>
+        {mapOptions(timeValues)}
       </select>
-      {destination == 'round' && (
-        <select value={time} onChange={onChangeTime}>
-          {mapOptions(secondTimeValues, secondFilterValues)}
+      {destination === 'round' && (
+        <select id='secondTime' value={secondTime} onChange={changeTimeHandler}>
+          {mapOptions(secondTimeValues, secondFilterValues, true)}
         </select>
       )}
     </div>
