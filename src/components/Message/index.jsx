@@ -13,6 +13,7 @@ export const Message = ({ data, count = null, time, secondTime, destination }) =
   const convertTime = (time) => {
     return moment(time).format('HH:mm')
   }
+
   const name = data.destinations[destination]
   const price = data.prices[destination]
   return (
