@@ -2,10 +2,13 @@ import { useEffect, useMemo } from 'react'
 import { increaseTime } from '../../utils/utils'
 
 export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }) => {
-  const timeValues = useMemo(() => data.time[destination] || data.time['to'], [data, destination])
+  const timeValues = useMemo(
+    () => data.timeCases[destination] || data.timeCases['to'],
+    [data, destination],
+  )
 
   const secondTimeValues = useMemo(
-    () => data.time[destination] || data.time['back'],
+    () => data.timeCases[destination] || data.timeCases['back'],
     [data, destination],
   )
   const secondFilterValues = useMemo(
@@ -34,7 +37,6 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
       if (destination === 'round') {
         onChangeTime('secondTime', secondFilterValues[0])
       }
-
       onChangeTime('time', timeValues[0])
     }
   }, [time, secondTime, destination, timeValues, secondTimeValues, secondFilterValues])
