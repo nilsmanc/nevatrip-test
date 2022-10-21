@@ -1,0 +1,38 @@
+.wrapper {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: rgb(95, 117, 167);
+  border-radius: 25px;
+  position: relative;
+  top: 70px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: top;
+  align-items: center;
+  align-content: center;
+}
+
+.destination {
+  margin: 5px;
+  padding: 5px;
+  flex: 0 1 auto;
+}
+
+.timeSelect {
+  margin: 5px;
+  padding: 5px;
+  flex: 0 1 auto;
+}
+
+.count {
+  margin: 5px;
+  padding: 5px;
+  flex: 0 1 auto;
+}
+
+.message {
+  margin: 5px;
+  padding: 5px;
+  flex: 0 1 auto;
+}

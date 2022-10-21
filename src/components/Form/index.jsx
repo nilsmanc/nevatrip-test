@@ -1,9 +1,9 @@
-import moment from 'moment'
 import { useState } from 'react'
 import { Count } from '../Count'
 import { Destination } from '../Destination'
 import { Message } from '../Message'
 import { TimeSelect } from '../TimeSelect'
+import styles from './Form.module.css'
 
 export const Form = ({ data }) => {
   const [destination, setDestination] = useState('to')
@@ -43,18 +43,29 @@ export const Form = ({ data }) => {
   }
 
   return (
-    <div>
-      <Destination destination={data.destinations} onChangeDestination={destinationHandler} />
+    <div className={styles.wrapper}>
+      <Destination
+        className={styles.destination}
+        destination={data.destinations}
+        onChangeDestination={destinationHandler}
+      />
       <TimeSelect
+        className={styles.timeSelect}
         data={data}
         destination={destination}
         time={time}
         secondTime={secondTime}
         onChangeTime={timeHandler}
       />
-      <Count count={count} handleSubmit={handleSubmit} onChangeCount={countHandler} />
+      <Count
+        className={styles.count}
+        count={count}
+        handleSubmit={handleSubmit}
+        onChangeCount={countHandler}
+      />
       {!isHidden && (
         <Message
+          className={styles.message}
           data={data}
           count={count}
           time={time}

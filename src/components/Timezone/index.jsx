@@ -1,3 +1,5 @@
+import styles from './Timezone.module.css'
+
 export const Timezone = ({ setTimezone, setIsTimezone }) => {
   const timezones = [
     { title: 'Калининград (UTC+2)', value: -1 },
@@ -25,9 +27,14 @@ export const Timezone = ({ setTimezone, setIsTimezone }) => {
     ))
   }
   return (
-    <div>
-      <select onClick={clickHandler}>{mapOptions()}</select>
-      <button onClick={() => setIsTimezone(false)}>Подтвердить</button>
+    <div className={styles.wrapper}>
+      <p className={styles.title}>Выберите часовой пояс</p>
+      <select className={styles.selector} onClick={clickHandler}>
+        {mapOptions()}
+      </select>
+      <button className={styles.btn} onClick={() => setIsTimezone(false)}>
+        Подтвердить
+      </button>
     </div>
   )
 }

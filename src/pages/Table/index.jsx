@@ -1,9 +1,11 @@
+import styles from './Table.module.css'
+
 export const Table = () => {
   return (
-    <div>
-      <p>phpMyAdmin</p>
+    <div className={styles.wrapper}>
+      <b>phpMyAdmin</b>
       <p>Исходная таблица</p>
-      <table bgcolor='#bdbcc4' cellpadding='10' rules='all'>
+      <table className={styles.table} width='80%' bgcolor='#8f9ec1' rules='all' border='2'>
         <tr>
           <td>id</td>
           <td>event_id</td>
@@ -58,12 +60,12 @@ export const Table = () => {
         </tr>
       </table>
 
-      <p>ticket_types</p>
+      <b>ticket_types</b>
       <p>
         Чтобы добавить новые типы билетов, была создана таблица ticket_types. Она нужна для
         получения цен по категориям билетов на разные мероприятия
       </p>
-      <table bgcolor='#bdbcc4' cellpadding='10' rules='all'>
+      <table className={styles.table} width='30%' bgcolor='#8f9ec1' rules='all' border='2'>
         <tr>
           <td>ticket_types_id</td>
           <td>type</td>
@@ -119,64 +121,68 @@ export const Table = () => {
           <td>006</td>
         </tr>
       </table>
-
-      <p>ticket_info</p>
-      <p>Содержит в себе данные об отдельном билете, в том числе баркод</p>
-      <table bgcolor='#bdbcc4' cellpadding='10' rules='all'>
-        <tr>
-          <td>ticket_id</td>
-          <td>ticket_types_id</td>
-          <td>barcode</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>555555</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>4</td>
-          <td>666666</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>2</td>
-          <td>777777</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>5</td>
-          <td>888888</td>
-        </tr>
-      </table>
-
-      <p>order</p>
-      <p>Нужна, чтобы связать заказ с его билетами</p>
-      <table bgcolor='#bdbcc4' cellpadding='10' rules='all'>
-        <tr>
-          <td>order_id</td>
-          <td>ticket_id</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-      </table>
-      <p>orders</p>
+      <div className={styles.inline}>
+        <b>ticket_info</b>
+        <p>Содержит в себе данные о типе билета и его баркод</p>
+        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' border='2'>
+          <tr>
+            <td>ticket_id</td>
+            <td>ticket_types_id</td>
+            <td>barcode</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>555555</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>4</td>
+            <td>666666</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>777777</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>888888</td>
+          </tr>
+        </table>
+      </div>
+      <div className={styles.inline}>
+        <b>order</b>
+        <p>Эта таблица нужна, чтобы связать заказ с его билетами</p>
+        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' border='2'>
+          <tr>
+            <td>order_id</td>
+            <td>ticket_id</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>4</td>
+          </tr>
+        </table>
+      </div>
+      <p>
+        <b>orders</b>
+      </p>
       <p>Итоговая таблица заказов</p>
-      <table bgcolor='#bdbcc4' cellpadding='10' rules='all'>
+      <table className={styles.table} width='50%' bgcolor='#8f9ec1' rules='all' border='2'>
         <tr>
           <td>order_id</td>
           <td>event_id</td>
@@ -210,6 +216,12 @@ export const Table = () => {
           <td>2021-01-12 16:62:08</td>
         </tr>
       </table>
+      <p>
+        Таким образом, мы получаем таблицу с дополнительными типами билетов, к которым можно легко
+        добавлять новые. Одновременно с этим появляется возможность добавлять несколько билетов к
+        одному заказу, чтобы чекинить людей в разное время. Например, во втором заказе два билета -
+        на ребенка и льготный.
+      </p>
     </div>
   )
 }

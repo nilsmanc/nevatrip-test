@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-
+import styles from './Header.module.css'
 export const Header = () => {
   return (
-    <div>
-      <Link to={'/table'}>
+    <div className={styles.wrapper}>
+      <Link className={styles.link} to={'/table'}>
         <span>Таблица</span>
       </Link>
-      <Link to={'/time'}>
+      <Link className={styles.link} to={'/'}>
         <span>Время</span>
       </Link>
     </div>

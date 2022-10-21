@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/table' element={<Table />} />
-        <Route path='/time' element={<Time />} />
+        <Route path='/' element={<Time />} />
       </Routes>
     </div>
   )

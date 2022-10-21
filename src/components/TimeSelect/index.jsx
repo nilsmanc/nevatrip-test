@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { increaseTime } from '../../utils/utils'
+import styles from './TimeSelect.module.css'
 
 export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }) => {
   const timeValues = useMemo(
@@ -33,7 +34,7 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
   }
 
   useEffect(() => {
-    if (!time && !secondTime) {
+    if (!time || !secondTime) {
       if (destination === 'round') {
         onChangeTime('secondTime', secondFilterValues[0])
       }
@@ -42,13 +43,17 @@ export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }
   }, [time, secondTime, destination, timeValues, secondTimeValues, secondFilterValues])
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div>Выберите время</div>
-      <select id='time' value={time} onChange={changeTimeHandler}>
+      <select className={styles.selector} id='time' value={time} onChange={changeTimeHandler}>
         {mapOptions(timeValues)}
       </select>
       {destination === 'round' && (
-        <select id='secondTime' value={secondTime} onChange={changeTimeHandler}>
+        <select
+          className={styles.selector}
+          id='secondTime'
+          value={secondTime}
+          onChange={changeTimeHandler}>
           {mapOptions(secondTimeValues, secondFilterValues, true)}
         </select>
       )}

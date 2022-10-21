@@ -1,3 +1,5 @@
+import styles from './Destination.module.css'
+
 export const Destination = ({ destination, onChangeDestination }) => {
   const mapOptions = () => {
     return Object.keys(destination).map((key) => (
@@ -8,9 +10,11 @@ export const Destination = ({ destination, onChangeDestination }) => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <p>Выберите маршрут</p>
-      <select onChange={onChangeDestination}>{mapOptions()}</select>
+      <select className={styles.selector} onChange={onChangeDestination}>
+        {mapOptions()}
+      </select>
       <div>Время в пути в одну сторону - 50 минут</div>
     </div>
   )

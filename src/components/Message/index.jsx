@@ -1,5 +1,6 @@
 import moment from 'moment/moment'
 import { increaseTime } from '../../utils/utils'
+import styles from './Message.module.css'
 
 export const Message = ({ data, count = null, time, secondTime, destination }) => {
   const chooseTicketVariant = (count) => {
@@ -17,24 +18,24 @@ export const Message = ({ data, count = null, time, secondTime, destination }) =
   const name = data.destinations[destination]
   const price = data.prices[destination]
   return (
-    <div>
+    <div className={styles.wrapper}>
       <p>
         {`Вы выбрали ${count} ${chooseTicketVariant(
           count,
-        )} по направлению ${name} на время: ${time}, общей стоимостью ${count * price} рублей`}
+        )} по направлению ${name} на время: ${time}, общей стоимостью ${count * price} рублей.`}
       </p>
-      <p>{`Теплоход ${name} отправляется в ${convertTime(time)} и прибудет в ${increaseTime(
+      <p>{`Теплоход отправляется в ${convertTime(time)} и прибудет в B в ${increaseTime(
         time,
         50,
-      ).format('HH:mm')}`}</p>
+      ).format('HH:mm')}.`}</p>
       {secondTime && (
         <p>
           {`Теплоход отправляется в обратном направлении в ${convertTime(
             secondTime,
-          )}, прибудет в ${increaseTime(secondTime, 50).format('HH:mm')}`}
+          )}, прибудет в ${increaseTime(secondTime, 50).format('HH:mm')}.`}
         </p>
       )}
-      <p>{`Время в пути составит ${secondTime ? '1 час 40 минут' : '50 минут'}`}</p>
+      <p>{`Время в пути составит ${secondTime ? '1 час 40 минут' : '50 минут'}.`}</p>
     </div>
   )
 }
