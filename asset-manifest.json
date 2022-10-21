@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nevatrip-test/static/css/main.d63281c5.css",
+    "main.js": "/nevatrip-test/static/js/main.a922cc22.js",
+    "index.html": "/nevatrip-test/index.html",
+    "main.d63281c5.css.map": "/nevatrip-test/static/css/main.d63281c5.css.map",
+    "main.a922cc22.js.map": "/nevatrip-test/static/js/main.a922cc22.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d63281c5.css",
+    "static/js/main.a922cc22.js"
+  ]
+}
