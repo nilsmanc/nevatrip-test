@@ -1,6 +1,12 @@
 import styles from './Count.module.css'
 
-export const Count = ({ count, handleSubmit, onChangeCount }) => {
+type CountProps = {
+  count: number
+  handleSubmit: () => void
+  onChangeCount: () => void
+}
+
+export const Count: React.FC<CountProps> = ({ count, handleSubmit, onChangeCount }) => {
   return (
     <div className={styles.wrapper}>
       <div>Количество билетов</div>

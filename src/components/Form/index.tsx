@@ -1,11 +1,16 @@
 import { useState } from 'react'
+import { Data } from '../../types'
 import { Count } from '../Count'
 import { Destination } from '../Destination'
 import { Message } from '../Message'
 import { TimeSelect } from '../TimeSelect'
 import styles from './Form.module.css'
 
-export const Form = ({ data }) => {
+type FormProps = {
+  data: Data
+}
+
+export const Form: React.FC<FormProps> = ({ data }) => {
   const [destination, setDestination] = useState('to')
   const [time, setTime] = useState('')
   const [secondTime, setSecondTime] = useState('')

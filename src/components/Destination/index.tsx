@@ -1,6 +1,11 @@
 import styles from './Destination.module.css'
 
-export const Destination = ({ destination, onChangeDestination }) => {
+type DestinationProps = {
+  destination: string
+  onChangeDestination: () => void
+}
+
+export const Destination: React.FC<DestinationProps> = ({ destination, onChangeDestination }) => {
   const mapOptions = () => {
     return Object.keys(destination).map((key) => (
       <option key={key} value={key}>
