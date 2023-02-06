@@ -1,9 +1,24 @@
 import moment from 'moment/moment'
+import { Data } from '../../types'
 import { increaseTime } from '../../utils/utils'
 import styles from './Message.module.css'
 
-export const Message = ({ data, count = null, time, secondTime, destination }) => {
-  const chooseTicketVariant = (count) => {
+type MessageProps = {
+  data: Data
+  count: number | null
+  time: string
+  secondTime: string
+  destination: string
+}
+
+export const Message: React.FC<MessageProps> = ({
+  data,
+  count = null,
+  time,
+  secondTime,
+  destination,
+}) => {
+  const chooseTicketVariant = (count: number) => {
     const cases = [2, 0, 1, 1, 1, 2]
     const ticketVariants = ['билет', 'билета', 'билетов']
     return ticketVariants[
@@ -11,7 +26,7 @@ export const Message = ({ data, count = null, time, secondTime, destination }) =
     ]
   }
 
-  const convertTime = (time) => {
+  const convertTime = (time: string) => {
     return moment(time).format('HH:mm')
   }
 

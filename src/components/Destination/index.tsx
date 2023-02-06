@@ -1,8 +1,12 @@
 import styles from './Destination.module.css'
 
 type DestinationProps = {
-  destination: string
-  onChangeDestination: () => void
+  destination: {
+    to: string
+    back: string
+    round: string
+  }
+  onChangeDestination: (e: Event) => void
 }
 
 export const Destination: React.FC<DestinationProps> = ({ destination, onChangeDestination }) => {

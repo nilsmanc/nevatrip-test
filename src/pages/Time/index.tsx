@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Form } from '../../components/Form'
 import { Timezone } from '../../components/Timezone'
 
-export const Time = () => {
+export const Time: React.FC = () => {
   const data = {
     timeCases: {
       to: [

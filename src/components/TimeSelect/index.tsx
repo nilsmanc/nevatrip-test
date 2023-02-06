@@ -1,8 +1,25 @@
 import { useEffect, useMemo } from 'react'
+import { Data } from '../../types'
+
 import { increaseTime } from '../../utils/utils'
+
 import styles from './TimeSelect.module.css'
 
-export const TimeSelect = ({ data, time, secondTime, onChangeTime, destination }) => {
+type TimeSelectProps = {
+  data: Data
+  time: string
+  secondTime: string
+  onChangeTime: (id: string, value: string) => void
+  destination: string
+}
+
+export const TimeSelect: React.FC<TimeSelectProps> = ({
+  data,
+  time,
+  secondTime,
+  onChangeTime,
+  destination,
+}) => {
   const timeValues = useMemo(
     () => data.timeCases[destination] || data.timeCases['to'],
     [data, destination],

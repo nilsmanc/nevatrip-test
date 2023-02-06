@@ -1,6 +1,11 @@
 import styles from './Timezone.module.css'
 
-export const Timezone = ({ setTimezone, setIsTimezone }) => {
+type TimezoneProps = {
+  setTimezone: (value: string) => void
+  setIsTimezone: (value: boolean) => void
+}
+
+export const Timezone: React.FC<TimezoneProps> = ({ setTimezone, setIsTimezone }) => {
   const timezones = [
     { title: 'Калининград (UTC+2)', value: -1 },
     { title: 'Москва (UTC+3)', value: 0 },

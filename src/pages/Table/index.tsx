@@ -1,11 +1,11 @@
 import styles from './Table.module.css'
 
-export const Table = () => {
+export const Table: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <b>phpMyAdmin</b>
       <p>Исходная таблица</p>
-      <table className={styles.table} width='80%' bgcolor='#8f9ec1' rules='all' border='2'>
+      <table className={styles.table} width='80%' bgcolor='#8f9ec1' rules='all' data-border='2'>
         <tr>
           <td>id</td>
           <td>event_id</td>
@@ -65,7 +65,7 @@ export const Table = () => {
         Чтобы добавить новые типы билетов, была создана таблица ticket_types. Она нужна для
         получения цен по категориям билетов на разные мероприятия
       </p>
-      <table className={styles.table} width='30%' bgcolor='#8f9ec1' rules='all' border='2'>
+      <table className={styles.table} width='30%' bgcolor='#8f9ec1' rules='all' data-border='2'>
         <tr>
           <td>ticket_types_id</td>
           <td>type</td>
@@ -124,7 +124,7 @@ export const Table = () => {
       <div className={styles.inline}>
         <b>ticket_info</b>
         <p>Содержит в себе данные о типе билета и его баркод</p>
-        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' border='2'>
+        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' data-border='2'>
           <tr>
             <td>ticket_id</td>
             <td>ticket_types_id</td>
@@ -155,7 +155,7 @@ export const Table = () => {
       <div className={styles.inline}>
         <b>order</b>
         <p>Эта таблица нужна, чтобы связать заказ с его билетами</p>
-        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' border='2'>
+        <table className={styles.table} width='100%' bgcolor='#8f9ec1' rules='all' data-border='2'>
           <tr>
             <td>order_id</td>
             <td>ticket_id</td>
@@ -182,7 +182,7 @@ export const Table = () => {
         <b>orders</b>
       </p>
       <p>Итоговая таблица заказов</p>
-      <table className={styles.table} width='50%' bgcolor='#8f9ec1' rules='all' border='2'>
+      <table className={styles.table} width='50%' bgcolor='#8f9ec1' rules='all' data-border='2'>
         <tr>
           <td>order_id</td>
           <td>event_id</td>
