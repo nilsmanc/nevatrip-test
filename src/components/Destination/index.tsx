@@ -6,7 +6,8 @@ type DestinationProps = {
     back: string
     round: string
   }
-  onChangeDestination: (e: Event) => void
+  onChangeDestination: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  className: string
 }
 
 export const Destination: React.FC<DestinationProps> = ({ destination, onChangeDestination }) => {

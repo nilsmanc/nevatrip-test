@@ -1,7 +1,7 @@
 import styles from './Timezone.module.css'
 
 type TimezoneProps = {
-  setTimezone: (value: string) => void
+  setTimezone: (value: number) => void
   setIsTimezone: (value: boolean) => void
 }
 

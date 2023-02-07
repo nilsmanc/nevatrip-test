@@ -11,6 +11,7 @@ type TimeSelectProps = {
   secondTime: string
   onChangeTime: (id: string, value: string) => void
   destination: string
+  className: string
 }
 
 export const TimeSelect: React.FC<TimeSelectProps> = ({
@@ -37,16 +38,16 @@ export const TimeSelect: React.FC<TimeSelectProps> = ({
     [time, timeValues],
   )
 
-  const mapOptions = (valuesType, filterType, filter = false) => {
+  const mapOptions = (valuesType, filterType?, filter = false) => {
     const filtered = filter ? filterType : valuesType
-    return filtered.map((value) => (
+    return filtered.map((value: string) => (
       <option key={value} value={value}>
         {value}
       </option>
     ))
   }
 
-  const changeTimeHandler = (e) => {
+  const changeTimeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChangeTime(e.target.id, e.target.value)
   }
 

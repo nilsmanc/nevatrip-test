@@ -3,7 +3,8 @@ import styles from './Count.module.css'
 type CountProps = {
   count: number
   handleSubmit: () => void
-  onChangeCount: () => void
+  onChangeCount: (e: React.ChangeEvent<HTMLInputElement>) => void
+  className: string
 }
 
 export const Count: React.FC<CountProps> = ({ count, handleSubmit, onChangeCount }) => {

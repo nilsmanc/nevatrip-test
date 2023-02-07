@@ -9,6 +9,7 @@ type MessageProps = {
   time: string
   secondTime: string
   destination: string
+  className: string
 }
 
 export const Message: React.FC<MessageProps> = ({

@@ -38,7 +38,7 @@ export const Time: React.FC = () => {
   const [isList, setIsList] = useState(true)
   const [selectedTimezone, setSelectedTimezone] = useState(0)
 
-  const toLocalTime = (array, time) => {
+  const toLocalTime = (array: string[], time: number) => {
     for (let i = 0; i <= array.length - 1; i++) {
       let newTime = moment(array[i], 'YYYY-MM-DD HH:mm:ss')
         .add(time, 'hours')
@@ -53,7 +53,7 @@ export const Time: React.FC = () => {
       {isList ? (
         <Timezone setTimezone={setSelectedTimezone} setIsTimezone={setIsList} />
       ) : (
-        <Form data={data} selectedTimezone={selectedTimezone} />
+        <Form data={data} />
       )}
     </div>
   )
