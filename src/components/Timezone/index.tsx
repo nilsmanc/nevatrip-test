@@ -20,8 +20,8 @@ export const Timezone: React.FC<TimezoneProps> = ({ setTimezone, setIsTimezone }
     { title: 'Петропавловск-Камчатский (UTC+12)', value: 9 },
   ]
 
-  const clickHandler = (e) => {
-    setTimezone(e.target.value)
+  const clickHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTimezone(+e.target.value)
   }
 
   const mapOptions = () => {
@@ -34,6 +34,7 @@ export const Timezone: React.FC<TimezoneProps> = ({ setTimezone, setIsTimezone }
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>Выберите часовой пояс</p>
+      {/* @ts-ignore */}
       <select className={styles.selector} onClick={clickHandler}>
         {mapOptions()}
       </select>

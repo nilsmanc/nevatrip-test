@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
+
 import { Header } from './components/Header'
 import { Table } from './pages/Table'
 import { Time } from './pages/Time'
+
+import './App.css'
 
 function App() {
   return (

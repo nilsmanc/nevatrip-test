@@ -1,9 +1,11 @@
 import { useState } from 'react'
+
 import { Data } from '../../types'
 import { Count } from '../Count'
 import { Destination } from '../Destination'
 import { Message } from '../Message'
 import { TimeSelect } from '../TimeSelect'
+
 import styles from './Form.module.css'
 
 type FormProps = {
@@ -24,12 +26,12 @@ export const Form: React.FC<FormProps> = ({ data }) => {
     setIsHidden(true)
   }
 
-  const destinationHandler = (e) => {
+  const destinationHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDestination(e.target.value)
     clearValues()
   }
 
-  const timeHandler = (id, time) => {
+  const timeHandler = (id: string, time: string) => {
     if (id === 'time') {
       setTime(time)
     } else {
@@ -38,8 +40,8 @@ export const Form: React.FC<FormProps> = ({ data }) => {
     setIsHidden(true)
   }
 
-  const countHandler = (e) => {
-    setCount(e.target.value)
+  const countHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCount(+e.target.value)
     setIsHidden(true)
   }
 

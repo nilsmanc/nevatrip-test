@@ -33,12 +33,12 @@ export const TimeSelect: React.FC<TimeSelectProps> = ({
   const secondFilterValues = useMemo(
     () =>
       secondTimeValues.filter(
-        (value) => value > increaseTime(time, 50).format('YYYY-MM-DD HH:mm:ss'),
+        (value: string) => value > increaseTime(time, 50).format('YYYY-MM-DD HH:mm:ss'),
       ),
     [time, timeValues],
   )
 
-  const mapOptions = (valuesType, filterType?, filter = false) => {
+  const mapOptions = (valuesType: string[], filterType?: string[], filter = false) => {
     const filtered = filter ? filterType : valuesType
     return filtered.map((value: string) => (
       <option key={value} value={value}>
